@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HELIX — A body that becomes the air</title>
+<meta name="description" content="HELIX 001. An aero-active concept car that changes shape at speed. A wind-tunnel study in five phases.">
+<meta name="theme-color" content="#07080a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2307080a'/%3E%3Cpath d='M6 22V10M26 22V10M6 16h20' stroke='%23ff4d17' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="loader" id="loader">
+  <div class="loader__row loader__row--top">
+    <span>HELIX DYNAMICS</span>
+    <span>TUNNEL 01 / GENEVA</span>
+  </div>
+  <div class="loader__core">
+    <span class="loader__pct" id="loadPct">00</span>
+    <span class="loader__unit">%</span>
+  </div>
+  <div class="loader__bar"><i id="loadBar"></i></div>
+  <div class="loader__row loader__row--bot">
+    <span>CALIBRATING AERO SURFACES</span>
+    <span>EST. 2031</span>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="Helix Dynamics, back to top">
+    <span class="nav__mark">H</span>
+    <span class="nav__name">HELIX<em>DYNAMICS</em></span>
+  </a>
+  <div class="nav__center">
+    <span class="nav__tag">CONCEPT 001</span>
+    <span class="nav__dot"></span>
+    <span class="nav__tag nav__tag--muted">AERO-ACTIVE GT</span>
+  </div>
+  <div class="nav__right">
+    <button class="sound" id="soundBtn" type="button" aria-pressed="false" aria-label="Toggle wind sound">
+      <span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="sound__label">SOUND OFF</span>
+    </button>
+    <a class="nav__cta" href="#return">ACCESS</a>
+  </div>
+</header>
+
+<nav class="rail" aria-label="Wind tunnel phases">
+  <a href="#top" data-rail="hero"><b>00</b><span>ENTRY</span></a>
+  <a href="#still" data-rail="still"><b>01</b><span>STILL</span></a>
+  <a href="#awake" data-rail="awake"><b>02</b><span>AWAKE</span></a>
+  <a href="#shape" data-rail="shape"><b>03</b><span>SHAPE</span></a>
+  <a href="#edge" data-rail="edge"><b>04</b><span>EDGE</span></a>
+  <a href="#return" data-rail="return"><b>05</b><span>RETURN</span></a>
+</nav>
+
+<aside class="telemetry" aria-hidden="true">
+  <div class="tel__speed">
+    <span class="tel__num" id="speedNum">000</span>
+    <span class="tel__unit">KM/H</span>
+  </div>
+  <div class="tel__rows">
+    <div><span>Cd</span><b id="telCd">0.210</b></div>
+    <div><span>DOWNFORCE</span><b id="telDf">40<em>KG</em></b></div>
+    <div><span>RIDE</span><b id="telRide">118<em>MM</em></b></div>
+  </div>
+</aside>
+
+<main id="top">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" data-phase="hero">
+    <div class="hero__eyebrow">
+      <span class="hero__eyebrow-line"></span>
+      <span>HELIX DYNAMICS — CONCEPT STUDY 001</span>
+      <span class="hero__eyebrow-line"></span>
+    </div>
+
+    <h1 class="hero__title" aria-label="HELIX">
+      <span class="ch"><i>H</i></span><span class="ch"><i>E</i></span><span class="ch"><i>L</i></span><span class="ch"><i>I</i></span><span class="ch"><i>X</i></span><span class="hero__sup">001</span>
+    </h1>
+
+    <p class="hero__sub">A body that becomes the air<br>it moves through.</p>
+
+    <div class="hero__specs">
+      <div><span>PEAK</span><b>400<em>km/h</em></b></div>
+      <div><span>0—100</span><b>1.8<em>s</em></b></div>
+      <div><span>RANGE</span><b>610<em>km</em></b></div>
+      <div><span>DRAG</span><b>0.11<em>Cd</em></b></div>
+    </div>
+
+    <div class="hero__cue">
+      <span class="hero__cue-line"><i></i></span>
+      <span>SCROLL TO OPEN THE TUNNEL</span>
+    </div>
+  </section>
+
+  <!-- ══════════ 01 STILL ══════════ -->
+  <section class="act act--left" id="still" data-phase="still" data-ghost="01">
+    <div class="act__inner">
+      <p class="label" data-reveal><i></i>PHASE 01 — STILL<span>000 KM/H</span></p>
+      <h2 class="h2" data-reveal data-split>It begins as a room.</h2>
+      <p class="body" data-reveal>At rest, Helix is 4,912 millimetres of quiet. The body sits high, the wing folded into the deck, 1,204 carbon scales closed against the weather. Nothing about it suggests what happens next.</p>
+      <ul class="stats" data-reveal>
+        <li><span>RIDE HEIGHT</span><b>118 <em>mm</em></b></li>
+        <li><span>MASS</span><b>1,340 <em>kg</em></b></li>
+        <li><span>DRAG COEFFICIENT</span><b>0.210 <em>Cd</em></b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════ 02 AWAKE ══════════ -->
+  <section class="act act--right" id="awake" data-phase="awake" data-ghost="02">
+    <div class="act__inner">
+      <p class="label" data-reveal><i></i>PHASE 02 — AWAKE<span>120 KM/H</span></p>
+      <h2 class="h2" data-reveal data-split>At 120, the skin remembers the wind.</h2>
+      <p class="body" data-reveal>Every scale lifts four tenths of a millimetre — just enough to trip the boundary layer into doing what we want. The nose drops. Forty kilograms of downforce arrive without a single moving wing.</p>
+      <ul class="stats" data-reveal>
+        <li><span>SCALE LIFT</span><b>0.4 <em>mm</em></b></li>
+        <li><span>DOWNFORCE</span><b>40 <em>kg</em></b></li>
+        <li><span>FRONTAL AREA</span><b>1.84 <em>m²</em></b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════ 03 SHAPE ══════════ -->
+  <section class="act act--kinetic" id="shape" data-phase="shape">
+    <div class="kinetic">
+      <p class="label" data-reveal><i></i>PHASE 03 — SHAPE<span>280 KM/H</span></p>
+      <h2 class="kinetic__type" aria-label="Drag becomes shape">
+        <span class="kl"><span>DRAG</span></span>
+        <span class="kl kl--indent"><span>BECOMES</span></span>
+        <span class="kl"><span>SHAPE</span></span>
+      </h2>
+      <div class="kinetic__note">
+        <span class="fig">FIG. 03</span>
+        <p>The rear deck extends 210 millimetres. The roofline falls. By 280, Helix is eleven percent longer and nine percent lower than it was standing still. The tunnel stops measuring the car — and starts measuring the air it leaves behind.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 04 EDGE ══════════ -->
+  <section class="act act--edge" id="edge" data-phase="edge">
+    <div class="edge">
+      <p class="label" data-reveal><i></i>PHASE 04 — EDGE<span>400 KM/H</span></p>
+      <div class="edge__row">
+        <div class="edge__num" data-reveal>
+          <span id="edgeNum">400</span><em>KM/H</em>
+        </div>
+        <div class="edge__copy">
+          <p class="edge__line" data-reveal data-split>At the edge there is no shape left to optimise. Only intent.</p>
+          <p class="edge__sub" data-reveal>Cd 0.11 — measured, not modelled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 05 RETURN ══════════ -->
+  <section class="act act--left act--return" id="return" data-phase="return" data-ghost="05">
+    <div class="act__inner">
+      <p class="label" data-reveal><i></i>PHASE 05 — RETURN<span>000 KM/H</span></p>
+      <h2 class="h2" data-reveal data-split>Then it comes back.</h2>
+      <p class="body" data-reveal>Every surface returns to rest. The scales close. The room reassembles itself around you. Helix does not remember the wind — it remembers the shape of it.</p>
+      <div class="invite" data-reveal>
+        <div class="invite__meta">
+          <span>PRIVATE VIEWING</span>
+          <b>GENEVA — 04.03.2031</b>
+        </div>
+        <a class="btn" href="mailto:studio@helixdynamics.example?subject=Helix%20001%20—%20invitation%20request" data-magnet>
+          <span class="btn__label">REQUEST AN INVITATION</span>
+          <span class="btn__arrow" aria-hidden="true">↗</span>
+        </a>
+        <p class="invite__note">Forty-eight places. No press. No phones.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" data-phase="foot">
+  <div class="foot__top">
+    <div class="foot__brand">
+      <span class="foot__mark">HELIX</span>
+      <span class="foot__mark-sub">DYNAMICS / 001</span>
+    </div>
+    <div class="foot__specs">
+      <div><span>POWERTRAIN</span><b>Four axial-flux motors<br>1,020 kW combined</b></div>
+      <div><span>STRUCTURE</span><b>Carbon monocoque<br>1,340 kg dry</b></div>
+      <div><span>AERO</span><b>Active scale skin<br>Cd 0.11 at 400 km/h</b></div>
+      <div><span>DIMENSIONS</span><b>4,912 × 2,014 × 1,124<br>Wheelbase 2,740 mm</b></div>
+    </div>
+  </div>
+
+  <div class="foot__eof"><span>END OF RUN</span><i></i><span>TUNNEL 01 / GENEVA</span></div>
+
+  <div class="foot__word" aria-hidden="true">HELIX</div>
+
+  <div class="foot__legal">
+    <p>HELIX 001 is a design fiction. It does not exist. Figures are illustrative; the invitation is imaginary. Built entirely in the browser.</p>
+    <p>© 2031 HELIX DYNAMICS — <a href="#top">BACK TO ENTRY</a></p>
+  </div>
+</footer>
+
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<script src="main.js"></script>
+</body>
+</html>
