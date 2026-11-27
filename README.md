@@ -51,3 +51,12 @@ the system font stack.
 
 Respects `prefers-reduced-motion`. Mobile composes with the car rising from the
 lower edge and a larger edge numeral.
+
+## Where this goes next
+
+A full plan for evolving HELIX 001 into an advanced, shader- and asset-powered
+version (Vite + TypeScript + shadcn/ui + react-three-fiber, GLSL from vetted
+open-source libraries, CC0/CC-BY models & HDRIs) lives in
+[`docs/ADVANCED-PLAN.md`](docs/ADVANCED-PLAN.md). It covers the target stack,
+a migration map from every part of `main.js`, shader and asset sourcing with
+licenses, a phased roadmap with acceptance gates, and the performance budget.
